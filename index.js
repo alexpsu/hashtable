@@ -55,8 +55,6 @@ Hash.prototype.find = function(value){
 
 var animals = new Hash();
 animals.add("Dog");
-// console.log(animals["171"].data);
 animals.add("Cat");
-// console.log(animals);
 animals.add("Dooog");
 console.log(animals.find("Dooog"))
