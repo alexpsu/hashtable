@@ -14,11 +14,11 @@ Hash.prototype.add = function(value){
   var key = (value.charCodeAt(0) + value.charCodeAt(value.length-1)).toString();
   var currentNode = this[key];
 
-  //The key doesn't exsist
+  //The key doesn't exist
   if(!currentNode){
     this[key] = node;
   } else{
-    //The key does exsist
+    //The key does exist
     while(currentNode.next){
       currentNode = currentNode.next
     }
@@ -33,9 +33,15 @@ Hash.prototype.find = function(value){
       nodeToFind = this[key],
       message = {failure: 'Failure: non-existent node in this list.'},
       count = 1;
+
+  //checks to see if node exist
   if(!nodeToFind){
     return message.failure;
-  } while(nodeToFind.data !== value){
+  }
+
+  //if the key does exist it checks to see if their is a linked list and will traverse
+  //the linked list if need be
+  while(nodeToFind.data !== value){
     nodeToFind = nodeToFind.next;
     count++;
   }
