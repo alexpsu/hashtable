@@ -1,12 +1,14 @@
-//Declare the hashtable
+//Creates contructor for node
 function Node(data) {
   this.data = data;
   this.next = null;
 };
 
+//contructor for hashtable
 function Hash() {
 };
 
+//Function to add a value to the hashtable, returns the node
 Hash.prototype.add = function(value){
   var node = new Node(value);
   var key = (value.charCodeAt(0) + value.charCodeAt(value.length-1)).toString();
@@ -25,6 +27,7 @@ Hash.prototype.add = function(value){
   return node;
 };
 
+//function to find value in hashtable, returns key as well as position if in a linked list
 Hash.prototype.find = function(value){
   var key = (value.charCodeAt(0) + value.charCodeAt(value.length-1)).toString(),
       nodeToFind = this[key],
@@ -36,7 +39,12 @@ Hash.prototype.find = function(value){
     nodeToFind = nodeToFind.next;
     count++;
   }
-  return "The key for this valye is " + key + " it was found at the " + count + " position in the linked list at that key."
+  if(count > 1){
+    return "The key for this value is, " + key + ", it was found at the " + count
+    + " position in the linked list associated with that key.";
+  } else {
+    return "They key is, " + key + ", it is the only value associated with this key";
+  }
 };
 
 var animals = new Hash();
