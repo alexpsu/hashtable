@@ -11,7 +11,7 @@ function Hash() {
 //Function to add a value to the hashtable, returns the node
 Hash.prototype.add = function(value){
   var node = new Node(value);
-  var key = (value.charCodeAt(0) + value.charCodeAt(value.length-1)).toString();
+  var key = (value.charCodeAt(0) + value.charCodeAt(value.length-1));
   var currentNode = this[key];
 
   //The key doesn't exist
@@ -29,7 +29,7 @@ Hash.prototype.add = function(value){
 
 //function to find value in hashtable, returns key as well as position if in a linked list
 Hash.prototype.find = function(value){
-  var key = (value.charCodeAt(0) + value.charCodeAt(value.length-1)).toString(),
+  var key = (value.charCodeAt(0) + value.charCodeAt(value.length-1)),
       nodeToFind = this[key],
       message = {failure: 'Failure: non-existent node in this list.'},
       count = 1;
